@@ -1,3 +1,6 @@
+const { Thought, User } = require('../models');
+
+
 const thoughtController = {
     //to get all user thoughts
     getThoughts(req, res) {
@@ -37,7 +40,7 @@ const thoughtController = {
             })
             .then((dbUserData) => {
                 if (!dbUserData) {
-                    return res.status(404).json({ message: 'Thought was creates, but user does not exist' });
+                    return res.status(404).json({ message: 'Thought was created, but user does not exist' });
                 }
 
                 res.json({ message: 'Thought was successfully created!' });
