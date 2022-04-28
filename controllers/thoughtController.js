@@ -79,9 +79,9 @@ const thoughtController = {
             .catch(err => res.json(err));
     },
     //add capability to react to thought
-    addReaction({ params, body }, res) {
+    addReaction(req, res){
         Thought.findOneAndUpdate(
-            { _id: params.thoughtId },
+            { _id: req.params.thoughtId },
             { $push: { reactions: req.body } },
             { new: true, runValidators: true }
         )
